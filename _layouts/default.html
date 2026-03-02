@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="wrap">
+      <aside class="side">
+        {% include sidebar.html %}
+      </aside>
+      <main class="main">
+        {{ content }}
+      </main>
+    </div>
+  </body>
+</html>
