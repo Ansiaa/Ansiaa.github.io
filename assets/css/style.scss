@@ -1,0 +1,39 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* 폰트: Pretendard 쓰려면 아래 @import 대신 파일로 넣거나, CDN을 head에 추가해도 됨 */
+body { font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+
+.wrap { display: flex; gap: 28px; max-width: 1080px; margin: 0 auto; padding: 24px 16px; }
+.side { flex: 0 0 300px; position: sticky; top: 16px; align-self: flex-start; }
+.main { flex: 1; min-width: 0; }
+
+/* 프로필 카드 느낌 */
+.profile {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+}
+
+.avatar{
+  width: 64px; height: 64px; border-radius: 16px;
+  background: linear-gradient(135deg, #5f3473 0%, #e6744e 100%); /* 저 사람처럼 “배너 감성” 한 방 */
+  margin-bottom: 10px;
+}
+.name { font-weight: 800; font-size: 18px; }
+.role { opacity: .75; margin-top: 4px; }
+.one { margin-top: 10px; line-height: 1.35; }
+
+.nav { display: grid; gap: 8px; margin-top: 14px; }
+.nav a { text-decoration: none; border: 1px solid #e5e7eb; border-radius: 10px; padding: 8px 10px; }
+.nav a:hover { opacity: .7; }
+
+.links { display: flex; gap: 10px; margin-top: 12px; }
+
+/* 반응형 */
+@media (max-width: 900px){
+  .wrap { display: block; }
+  .side { position: static; margin-bottom: 16px; }
+}
