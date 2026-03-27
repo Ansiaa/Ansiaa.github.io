@@ -128,23 +128,27 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .media-grid.media-grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .media-card {
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px;
       overflow: hidden;
       background: rgba(255,255,255,0.02);
+      display: flex;
+      flex-direction: column;
     }
     .media-card img {
       display: block;
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       background: #0d1117;
+      padding: 14px;
+      box-sizing: border-box;
     }
     .media-card figcaption {
-      padding: 12px 14px 14px;
+      padding: 0 14px 14px;
       font-size: 0.92rem;
       line-height: 1.6;
       opacity: 0.92;
@@ -152,6 +156,10 @@
     .media-card strong {
       display: block;
       margin-bottom: 4px;
+    }
+    .media-card figcaption {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 12px;
     }
     .note-box,
     .callout-box,
@@ -240,6 +248,71 @@
       margin: 0;
       line-height: 1.7;
     }
+
+    .about-intro-card,
+    .about-detail-card,
+    .about-summary-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      padding: 20px;
+    }
+    .about-intro-card {
+      margin-top: 22px;
+    }
+    .about-intro-card h3,
+    .about-detail-card h3,
+    .about-summary-card h3 {
+      margin: 0 0 12px;
+    }
+    .about-intro-card p,
+    .about-detail-card p,
+    .about-summary-card p {
+      margin: 0 0 12px;
+      line-height: 1.8;
+    }
+    .about-intro-card p:last-child,
+    .about-detail-card p:last-child,
+    .about-summary-card p:last-child {
+      margin-bottom: 0;
+    }
+    .about-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .about-detail-card .about-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.84rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    .about-detail-card strong {
+      display: block;
+      margin: 12px 0 6px;
+      font-size: 0.95rem;
+    }
+    .about-summary-card {
+      margin-top: 18px;
+    }
+    .about-summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .about-summary-tags span {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.92rem;
+    }
     @media (max-width: 1100px) {
       .media-grid,
       .media-grid.media-grid-4,
@@ -266,12 +339,16 @@
         <div class="avatar">A</div>
         <h1>안서영 · Seoyeong An</h1>
         <p class="profile-role">Vision SW · Image Processing Engineer</p>
+        <p class="profile-desc">
+          MFC/C++ 기반 검사 소프트웨어 개발과 판정 결과 분석 경험을 바탕으로,
+          영상처리와 머신러닝을 실제 운영 흐름에 연결하는 포트폴리오입니다.
+        </p>
+
         <nav class="side-nav">
           <a href="#about">About</a>
           <a href="#strengths">Strengths</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
         </nav>
 
         <div class="sidebar-block">
@@ -283,7 +360,8 @@
             <span>OpenCV</span>
             <span>Python</span>
             <span>FastAPI</span>
-            <span>AI</span>
+            <span>ML</span>
+            <span>FP/FN 분석</span>
           </div>
         </div>
 
@@ -296,15 +374,78 @@
     </aside>
 
     <main class="content">
+      
       <section class="hero section-block" id="about">
         <p class="eyebrow">About</p>
-        <h4 class="hero-title">About Me</h2>
+        <h2 class="hero-title">검사 소프트웨어를 만들고, 결과를 분석해 기준을 정리해 온 개발자입니다.</h2>
         <p class="hero-lead">
-          저는 머신비전 검사 회사에서 MFC/C++ 기반 UI 개발과 유지보수, 판정 결과 비교, 오검출·미검출 분석,
+          머신비전 검사 회사에서 MFC/C++ 기반 UI 개발과 유지보수, 판정 결과 비교, 오검출·미검출 분석,
           결과 데이터 정리와 문서화를 수행했습니다. 최근에는 Python/OpenCV 기반 Vision AI 프로젝트를 통해
           비전 검사 운영 경험을 영상처리와 머신러닝 영역으로 확장하고 있습니다.
         </p>
+
+        <div class="about-intro-card">
+          <h3>About Me</h3>
+          <p>저는 작은 차이도 놓치지 않으려는 편이며, 문제를 볼 때도 겉으로 드러난 결과보다 그 원인과 흐름을 함께 이해하려고 합니다.</p>
+          <p>맡은 일은 단순히 처리하는 데서 끝내지 않고, 실제로 안정적으로 운영될 수 있는 수준까지 점검하려고 합니다.</p>
+          <p>저는 빠른 결정보다 충분한 검토를 바탕으로 판단하는 편이며, 특히 정확성과 재현성이 중요한 업무일수록 더 신중하게 접근합니다.</p>
+          <p>저는 정보를 단순히 확인하는 데서 끝내지 않고, 다시 검토하고 공유할 수 있도록 구조화해 정리하는 것을 중요하게 생각합니다.</p>
+          <p>저는 협업에서 상대가 필요로 하는 정보와 흐름을 먼저 고려하는 편이며, 혼자 이해하는 방식보다 함께 일하기 쉬운 형태로 소통하고 정리하려고 합니다.</p>
+        </div>
+
+        <div class="about-detail-grid">
+          <article class="about-detail-card">
+            <span class="about-label">01</span>
+            <h3>세심한 관찰력</h3>
+            <p>작은 차이, 미묘한 변화, 흐름을 잘 보는 편입니다. 결과만 보는 것이 아니라 원인까지 보려는 성향이 있습니다.</p>
+            <strong>보완하려는 점</strong>
+            <p>사소한 부분까지 신경 써서 생각이 길어질 수 있지만, 최근에는 우선순위를 정해 핵심부터 판단하는 습관을 들이고 있습니다.</p>
+          </article>
+
+          <article class="about-detail-card">
+            <span class="about-label">02</span>
+            <h3>책임감과 꾸준함</h3>
+            <p>맡은 일을 가볍게 넘기지 않고, 끝까지 확인하고 정리하려는 성향이 있습니다.</p>
+            <strong>보완하려는 점</strong>
+            <p>책임감을 크게 느껴 스스로 부담을 안을 수 있지만, 일정과 목표를 함께 관리하며 균형 있게 업무를 수행하려고 노력하고 있습니다.</p>
+          </article>
+
+          <article class="about-detail-card">
+            <span class="about-label">03</span>
+            <h3>신중한 판단력</h3>
+            <p>성급하게 결론내리기보다 충분히 검토하는 편이며, 정확성과 재현성이 중요한 일에 강점이 있습니다.</p>
+            <strong>보완하려는 점</strong>
+            <p>중요한 판단에서는 여러 가능성을 함께 검토합니다. 다만 실행이 늦어지지 않도록 기준을 명확히 세우고 결정하려고 합니다.</p>
+          </article>
+
+          <article class="about-detail-card">
+            <span class="about-label">04</span>
+            <h3>정리력과 구조화 능력</h3>
+            <p>머릿속으로만 두지 않고 정리해서 남기려는 편이며, 패턴·기준·차이를 구조적으로 보는 데 강점이 있습니다.</p>
+            <strong>보완하려는 점</strong>
+            <p>정리의 완성도를 높이려다 시간이 더 들 때도 있지만, 최근에는 목적에 맞는 수준으로 정리 범위를 조절하고 있습니다.</p>
+          </article>
+
+          <article class="about-detail-card">
+            <span class="about-label">05</span>
+            <h3>배려와 협업 감각</h3>
+            <p>상대 입장과 필요한 정보를 함께 의식하며, 혼자 잘하는 것보다 함께 일하기 쉬운 흐름을 중요하게 생각합니다.</p>
+            <strong>보완하려는 점</strong>
+            <p>주변 반응을 지나치게 의식할 때도 있어, 최근에는 기준과 목적을 먼저 분명히 하며 소통하려고 합니다.</p>
+          </article>
+
+          <article class="about-summary-card">
+            <h3>핵심 강점 3가지</h3>
+            <p>AboutMe.txt 기준으로 가장 자연스럽게 드러나는 강점은 아래 세 가지입니다.</p>
+            <div class="about-summary-tags">
+              <span>세심한 관찰력</span>
+              <span>책임감과 꾸준함</span>
+              <span>원인과 흐름을 보는 분석 태도</span>
+            </div>
+          </article>
+        </div>
       </section>
+
 
       <section class="section-block" id="strengths">
         <div class="section-header">
@@ -333,7 +474,7 @@
             <p class="eyebrow">Projects</p>
             <h2>프로젝트</h2>
           </div>
-          <p class="section-guide">카드 클릭</p>
+          <p class="section-guide">카드를 누르면 아래 상세 설명이 바뀝니다.</p>
         </div>
 
         <div class="project-grid project-grid-2">
@@ -859,19 +1000,17 @@
                     <li>final operating version selection</li>
                     <li>recall-priority threshold sweep</li>
                     <li>operating FP/FN gallery 정리</li>
+                  </ul>
+                </div>
+                <div class="info-card">
+                  <h4>연결 완료 항목</h4>
+                  <ul class="bullet-list">
                     <li>drift monitoring skeleton</li>
                     <li>retrain trigger skeleton</li>
                     <li>FastAPI inference endpoint</li>
                     <li>gt_label / pred_label / is_correct 중심 응답 구조</li>
                     <li>raw full-image validation</li>
                     <li>MFC integration test</li>
-                  </ul>
-                </div>
-                <div class="info-card">
-                  <h4>확장해야할 항목</h4>
-                  <ul class="bullet-list">
-                    <li>VLM-based explanation JSON</li>
-                    <li>Docker packaging</li>
                   </ul>
                 </div>
               </div>
@@ -930,16 +1069,6 @@
                 <p>MFC, C++, Visual Studio, OpenCV, HALCON, Excel VBA</p>
               </div>
             </div>
-
-            <section class="detail-section">
-              <span class="section-kicker">Why It Matters</span>
-              <h4>현재 포트폴리오와 연결되는 이유</h4>
-              <p class="detail-copy">
-                현재 메인 프로젝트에서 결과 화면, heatmap/overlay, threshold, JSON 응답 구조까지 같이 보는 이유는
-                이전 실무에서 운영자가 실제로 확인하는 흐름과 결과 정리 방식이 중요하다는 점을 경험했기 때문입니다.
-                그래서 이 섹션은 단순 경력 나열이 아니라, 지금의 Vision AI 포트폴리오가 어떤 실무 배경 위에서 나왔는지를 설명하는 역할을 합니다.
-              </p>
-            </section>
           </article>
         </div>
       </section>
@@ -962,20 +1091,6 @@
             <h3>결과 데이터 정리 자동화와 문서화</h3>
             <p>Excel VBA를 활용해 반복적인 결과 비교·정리 업무를 자동화했고, 결과 해석과 대응을 위한 문서화 작업도 함께 수행했습니다.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="section-block" id="contact">
-        <div class="section-header">
-          <p class="eyebrow">Contact</p>
-          <h2>연락</h2>
-        </div>
-        <div class="contact-box">
-          <div class="contact-links">
-            <a href="https://github.com/ansiaa" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="mailto:ae312603@gmail.com">ae312603@gmail.com</a>
-            <a href="resume.pdf" target="_blank" rel="noreferrer">이력서 보기</a>
-          </div>
         </div>
       </section>
     </main>
