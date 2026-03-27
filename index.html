@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ansiaa | Vision SW · Image Processing Portfolio</title>
+  <meta name="description" content="MFC/C++ 기반 비전 검사 소프트웨어 경험과 Python/OpenCV 기반 Vision AI 프로젝트를 정리한 포트폴리오" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-title {
+      margin: 0 0 14px;
+      line-height: 1.28;
+    }
+    .hero-lead {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .strength-grid article,
+    .project-detail .summary-card,
+    .project-detail .info-card,
+    .project-detail .stack-card,
+    .project-detail .work-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      padding: 20px;
+    }
+    .project-grid.project-grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .detail-panel {
+      margin-top: 28px;
+    }
+    .project-detail {
+      display: none;
+    }
+    .project-detail.active {
+      display: block;
+    }
+    .detail-hero {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .detail-hero h3 {
+      margin: 6px 0 0;
+      line-height: 1.3;
+    }
+    .detail-hero p {
+      margin: 0;
+      line-height: 1.75;
+    }
+    .chip-row,
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.92rem;
+    }
+    .summary-grid,
+    .info-grid,
+    .work-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 22px 0 32px;
+    }
+    .summary-card h4,
+    .info-card h4,
+    .stack-card h4,
+    .work-card h4,
+    .detail-section h4 {
+      margin: 0 0 12px;
+    }
+    .summary-card p,
+    .info-card p,
+    .stack-card p,
+    .work-card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+    .detail-section {
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .detail-section:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .detail-copy {
+      margin: 0 0 16px;
+      line-height: 1.8;
+    }
+    .process-list,
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+    .media-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+    .media-grid.media-grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .media-grid.media-grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .media-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .media-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #0d1117;
+    }
+    .media-card figcaption {
+      padding: 12px 14px 14px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+    .media-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .note-box,
+    .callout-box,
+    .code-box {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      padding: 18px 20px;
+      margin-top: 18px;
+    }
+    .note-box p,
+    .callout-box p,
+    .code-box p {
+      margin: 0;
+      line-height: 1.75;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+    }
+    .table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: rgba(255,255,255,0.02);
+    }
+    .table-wrap th,
+    .table-wrap td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    .table-wrap tr:last-child td {
+      border-bottom: 0;
+    }
+    .code-box pre {
+      margin: 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      line-height: 1.7;
+      font-size: 0.93rem;
+    }
+    .work-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .work-meta span {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+    }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .section-subtitle {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+    .experience-list article {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(255,255,255,0.02);
+    }
+    .experience-list h3 {
+      margin: 0 0 8px;
+    }
+    .experience-list p {
+      margin: 0;
+      line-height: 1.7;
+    }
+    @media (max-width: 1100px) {
+      .media-grid,
+      .media-grid.media-grid-4,
+      .summary-grid,
+      .info-grid,
+      .work-grid,
+      .stack-grid,
+      .project-grid.project-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .media-grid.media-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .media-card img {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="avatar">A</div>
+        <h1>안서영 · Seoyeong An</h1>
+        <p class="profile-role">Vision SW · Image Processing Engineer</p>
+        <p class="profile-desc">
+          MFC/C++ 기반 검사 소프트웨어 개발과 판정 결과 분석 경험을 바탕으로,
+          영상처리와 머신러닝을 실제 운영 흐름에 연결하는 포트폴리오입니다.
+        </p>
+
+        <nav class="side-nav">
+          <a href="#about">About</a>
+          <a href="#strengths">Strengths</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="sidebar-block">
+          <h2>핵심 키워드</h2>
+          <div class="tag-list">
+            <span>MFC</span>
+            <span>C++</span>
+            <span>Vision SW</span>
+            <span>OpenCV</span>
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>ML</span>
+            <span>FP/FN 분석</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block links-block">
+          <a href="https://github.com/ansiaa" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:ae312603@gmail.com">Email</a>
+          <a href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero section-block" id="about">
+        <p class="eyebrow">About</p>
+        <h2 class="hero-title">검사 소프트웨어를 만들고, 결과를 분석해 기준을 정리해 온 개발자입니다.</h2>
+        <p class="hero-lead">
+          머신비전 검사 회사에서 MFC/C++ 기반 UI 개발과 유지보수, 판정 결과 비교, 오검출·미검출 분석,
+          결과 데이터 정리와 문서화를 수행했습니다. 최근에는 Python/OpenCV 기반 Vision AI 프로젝트를 통해
+          비전 검사 운영 경험을 영상처리와 머신러닝 영역으로 확장하고 있습니다.
+        </p>
+      </section>
+
+      <section class="section-block" id="strengths">
+        <div class="section-header">
+          <p class="eyebrow">Strengths</p>
+          <h2>강점</h2>
+        </div>
+        <div class="strength-grid">
+          <article>
+            <h3>세심한 관찰력</h3>
+            <p>작은 차이와 미묘한 변화도 놓치지 않으려 하고, 겉으로 보이는 결과보다 원인과 흐름까지 함께 보려는 편입니다.</p>
+          </article>
+          <article>
+            <h3>끝까지 점검하는 책임감</h3>
+            <p>맡은 일은 단순히 처리하는 데서 끝내지 않고, 실제로 안정적으로 운영될 수 있는 수준까지 확인하려고 합니다.</p>
+          </article>
+          <article>
+            <h3>원인과 흐름을 보는 분석 태도</h3>
+            <p>수치만 보는 것이 아니라 이미지, 기준 변경 전후 차이, FP/FN 패턴까지 함께 보며 다시 활용할 수 있게 정리합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="projects">
+        <div class="section-header section-header-inline">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2>프로젝트</h2>
+          </div>
+          <p class="section-guide">카드를 누르면 아래 상세 설명이 바뀝니다.</p>
+        </div>
+
+        <div class="project-grid project-grid-2">
+          <button class="project-card active" data-project="vision-inspection">
+            <span class="project-type">MAIN PROJECT</span>
+            <strong>Production Vision Inspection</strong>
+            <p>ROI 전처리부터 운영 임계값, API, MFC 데모까지 연결한 운영형 비전 검사 포트폴리오</p>
+            <span class="project-stack">Python · OpenCV · FastAPI · MFC/C++</span>
+          </button>
+
+          <button class="project-card" data-project="work-history">
+            <span class="project-type">WORK EXPERIENCE</span>
+            <strong>머신비전 검사 SW 운영 화면 및 결과 분석</strong>
+            <p>검사 결과 확인 화면 개발, 판정 데이터 비교, 오검출·미검출 정리와 자동화 경험</p>
+            <span class="project-stack">MFC · C++ · HALCON · Excel VBA</span>
+          </button>
+        </div>
+
+        <div class="detail-panel">
+          <article class="project-detail active" id="vision-inspection">
+            <div class="detail-hero">
+              <div>
+                <p class="eyebrow">Production Vision Inspection</p>
+                <h3>입력 안정화, 이상 영역 해석, 운영 임계값 조정, API/MFC 연동까지 한 흐름으로 보여주는 메인 프로젝트</h3>
+                <p>
+                  이 프로젝트는 제조 검사 이미지를 바로 분류하는 데서 끝나지 않고, ROI 기준선 구축, 전처리 비교,
+                  운영 임계값 재설정, FP/FN 사례 확인, drift monitoring, FastAPI 응답 구조, MFC 데모 클라이언트까지
+                  실제 검사 소프트웨어 흐름에 가깝게 정리한 포트폴리오입니다.
+                </p>
+                <div class="chip-row">
+                  <span class="chip">Dataset · VisA (pcb4 / cashew)</span>
+                  <span class="chip">Core · ROI + Anomaly Detection</span>
+                  <span class="chip">Serving · FastAPI</span>
+                  <span class="chip">Client · MFC Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="summary-grid">
+              <div class="summary-card">
+                <h4>프로젝트 목적</h4>
+                <p>입력 이미지 편차를 줄이고, anomaly score·heatmap·overlay를 통해 결과를 해석 가능하게 만들며, 실제 운영에 가까운 임계값 정책을 정리하는 데 초점을 맞췄습니다.</p>
+              </div>
+              <div class="summary-card">
+                <h4>보여주려는 역량</h4>
+                <p>영상 전처리 설계, 결과 해석, FP/FN 분석, 운영 기준 조정, API와 UI 연결까지 하나의 제품 흐름처럼 설명하는 역량을 강조했습니다.</p>
+              </div>
+              <div class="summary-card">
+                <h4>핵심 산출물</h4>
+                <p>ROI 결과 이미지, CLAHE 비교 이미지, 정량 비교표, 대표 FP/FN 사례, 운영 임계값 표, API 응답 스키마, MFC 데모 화면을 한 페이지에 연결했습니다.</p>
+              </div>
+              <div class="summary-card">
+                <h4>지원 직무 연결</h4>
+                <p>영상처리·비전 검사 SW·Vision AI 직무에서 요구하는 입력 전처리, 판정 기준 검토, 시각화, 응용 소프트웨어 연동 경험으로 이어지도록 구성했습니다.</p>
+              </div>
+            </div>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 01</span>
+              <h4>ROI 기준선 구성</h4>
+              <p class="detail-copy">
+                첫 단계는 배경이 많이 포함된 원본 이미지를 그대로 사용하지 않고, 검사 대상 영역을 안정적으로 잘라내는 기준선을 만드는 것이었습니다.
+                배경색 추정, AB/LAB distance map 계산, foreground mask 후보 생성, 최종 ROI 선택 과정을 통해
+                ROI-only baseline을 먼저 구성했습니다.
+              </p>
+              <ul class="process-list">
+                <li>이미지 테두리에서 배경색 추정</li>
+                <li>AB distance / LAB distance map 계산</li>
+                <li>threshold + mask cleanup으로 foreground 후보 생성</li>
+                <li>최종 foreground mask와 bounding box를 선택해 crop</li>
+              </ul>
+
+              <h5 class="section-subtitle">pcb4 ROI 예시</h5>
+              <div class="media-grid">
+                <figure class="media-card">
+                  <img src="docs/images/roi/pcb4/000_raw.JPG" alt="pcb4 raw image" loading="lazy" />
+                  <figcaption><strong>Raw</strong>원본 입력 이미지</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/pcb4/000_foreground.png" alt="pcb4 foreground mask" loading="lazy" />
+                  <figcaption><strong>Foreground</strong>선택된 전경 마스크</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/pcb4/000_debug.jpg" alt="pcb4 roi debug" loading="lazy" />
+                  <figcaption><strong>ROI Debug</strong>ROI 선택 디버그 시각화</figcaption>
+                </figure>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/roi/pcb4/000_dist_ab.jpg" alt="pcb4 ab distance map" loading="lazy" />
+                  <figcaption><strong>AB Distance</strong>배경과의 색 거리 기반 분리</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/pcb4/000_dist_lab.jpg" alt="pcb4 lab distance map" loading="lazy" />
+                  <figcaption><strong>LAB Distance</strong>fallback용 거리 맵</figcaption>
+                </figure>
+              </div>
+
+              <h5 class="section-subtitle">cashew ROI 예시</h5>
+              <div class="media-grid">
+                <figure class="media-card">
+                  <img src="docs/images/roi/cashew/000_raw.JPG" alt="cashew raw image" loading="lazy" />
+                  <figcaption><strong>Raw</strong>원본 입력 이미지</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/cashew/000_foreground.png" alt="cashew foreground mask" loading="lazy" />
+                  <figcaption><strong>Foreground</strong>선택된 전경 마스크</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/cashew/000_debug.jpg" alt="cashew roi debug" loading="lazy" />
+                  <figcaption><strong>ROI Debug</strong>ROI 선택 디버그 시각화</figcaption>
+                </figure>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/roi/cashew/000_dist_ab.jpg" alt="cashew ab distance map" loading="lazy" />
+                  <figcaption><strong>AB Distance</strong>형상과 배경 분리를 위한 거리 맵</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/roi/cashew/000_dist_lab.jpg" alt="cashew lab distance map" loading="lazy" />
+                  <figcaption><strong>LAB Distance</strong>보조 기준으로 사용한 거리 맵</figcaption>
+                </figure>
+              </div>
+
+              <div class="note-box">
+                <p>
+                  이 단계에서 강조한 포인트는 <strong>모델을 돌리기 전에 입력을 먼저 정리했다</strong>는 점입니다.
+                  실제 검사에서는 배경이 많이 섞이면 score 분포와 heatmap 해석이 흔들릴 수 있기 때문에,
+                  ROI 기준선을 먼저 만든 흐름 자체가 운영 관점의 설계라고 볼 수 있습니다.
+                </p>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 02</span>
+              <h4>CLAHE 비교와 정량·정성 분석</h4>
+              <p class="detail-copy">
+                ROI-only 기준선을 만든 뒤에는, 같은 ROI에서 CLAHE를 추가했을 때 anomaly separation이 실제로 나아지는지 비교했습니다.
+                이 단계에서는 단순히 대비를 올리는 것이 아니라 score 분포, threshold, FP/FN 변화,
+                representative heatmap/overlay를 함께 봤습니다.
+              </p>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/pcb4/000_roi_only.jpg" alt="pcb4 roi only" loading="lazy" />
+                  <figcaption><strong>pcb4 ROI-only</strong>기준선 입력</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/pcb4/000_roi_clahe.jpg" alt="pcb4 roi clahe" loading="lazy" />
+                  <figcaption><strong>pcb4 ROI + CLAHE</strong>대비 향상 적용</figcaption>
+                </figure>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/cashew/000_roi_only.jpg" alt="cashew roi only" loading="lazy" />
+                  <figcaption><strong>cashew ROI-only</strong>기준선 입력</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/cashew/000_roi_clahe.jpg" alt="cashew roi clahe" loading="lazy" />
+                  <figcaption><strong>cashew ROI + CLAHE</strong>대비 향상 적용</figcaption>
+                </figure>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Version</th>
+                      <th>AUROC</th>
+                      <th>Threshold</th>
+                      <th>Precision</th>
+                      <th>Recall</th>
+                      <th>F1</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pcb4</td>
+                      <td>ROI-only</td>
+                      <td>0.9700</td>
+                      <td>0.0756</td>
+                      <td>0.7975</td>
+                      <td>0.63</td>
+                      <td>0.7039</td>
+                    </tr>
+                    <tr>
+                      <td>pcb4</td>
+                      <td>ROI+CLAHE</td>
+                      <td>0.9748</td>
+                      <td>0.0808</td>
+                      <td>0.7931</td>
+                      <td>0.69</td>
+                      <td>0.7380</td>
+                    </tr>
+                    <tr>
+                      <td>cashew</td>
+                      <td>ROI-only</td>
+                      <td>0.9695</td>
+                      <td>0.0554</td>
+                      <td>0.7611</td>
+                      <td>0.86</td>
+                      <td>0.8075</td>
+                    </tr>
+                    <tr>
+                      <td>cashew</td>
+                      <td>ROI+CLAHE</td>
+                      <td>0.9533</td>
+                      <td>0.0577</td>
+                      <td>0.7217</td>
+                      <td>0.83</td>
+                      <td>0.7721</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/score_histogram_img/pcb4_roi_only_score_hist.png" alt="pcb4 roi only score histogram" loading="lazy" />
+                  <figcaption><strong>pcb4 ROI-only</strong>score histogram</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/score_histogram_img/pcb4_clahe_score_hist.png" alt="pcb4 clahe score histogram" loading="lazy" />
+                  <figcaption><strong>pcb4 ROI+CLAHE</strong>score histogram</figcaption>
+                </figure>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/score_histogram_img/cashew_roi_only_score_hist.png" alt="cashew roi only score histogram" loading="lazy" />
+                  <figcaption><strong>cashew ROI-only</strong>score histogram</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/score_histogram_img/cashew_clahe_score_hist.png" alt="cashew clahe score histogram" loading="lazy" />
+                  <figcaption><strong>cashew ROI+CLAHE</strong>score histogram</figcaption>
+                </figure>
+              </div>
+
+              <div class="callout-box">
+                <p>
+                  비교 결과는 카테고리별로 달랐습니다. <strong>pcb4는 CLAHE가 약한 결함 대비를 강화해 Recall과 F1을 개선</strong>했고,
+                  <strong>cashew는 ROI-only가 더 안정적</strong>이었습니다. 즉, 전처리는 무조건 강하게 넣는 것이 아니라
+                  대상의 texture 특성에 따라 선택해야 한다는 점을 보여주도록 구성했습니다.
+                </p>
+              </div>
+
+              <h5 class="section-subtitle">Representative Case</h5>
+              <div class="media-grid">
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/representative/pcb4_success_roi_only_overlay.png" alt="pcb4 success roi overlay" loading="lazy" />
+                  <figcaption><strong>pcb4 성공 사례</strong>CLAHE가 약한 defect 반응을 강화한 케이스</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/representative/pcb4_failure_clahe_overlay.png" alt="pcb4 failure clahe overlay" loading="lazy" />
+                  <figcaption><strong>pcb4 실패 사례</strong>정상 구조 edge·반사 영역이 false positive로 강조된 케이스</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/clahe_compare/representative/cashew_failure_clahe_overlay.png" alt="cashew failure clahe overlay" loading="lazy" />
+                  <figcaption><strong>cashew 실패 사례</strong>grain texture와 illumination이 anomaly처럼 반응한 케이스</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 03</span>
+              <h4>추가 필터 실험과 최종 버전 선택</h4>
+              <p class="detail-copy">
+                CLAHE 비교 이후에도 운영 관점에서는 false positive가 충분히 낮지 않았기 때문에,
+                카테고리별로 가벼운 필터를 추가한 extension experiments를 진행했습니다.
+                전체 파이프라인을 다시 바꾸기보다, 선택된 전처리 위에 median·gaussian·bilateral을 붙여 실제 운영 균형을 다시 비교했습니다.
+              </p>
+
+              <div class="info-grid">
+                <div class="info-card">
+                  <h4>pcb4 실험군</h4>
+                  <ul class="bullet-list">
+                    <li>CLAHE + MedianBlur(3x3)</li>
+                    <li>CLAHE + GaussianBlur(3x3)</li>
+                    <li>CLAHE + MedianBlur(5x5)</li>
+                    <li>CLAHE + BilateralFilter</li>
+                  </ul>
+                </div>
+                <div class="info-card">
+                  <h4>cashew 실험군</h4>
+                  <ul class="bullet-list">
+                    <li>ROI-only + MedianBlur(3x3)</li>
+                    <li>ROI-only + BilateralFilter</li>
+                    <li>ROI-only + GaussianBlur(3x3)</li>
+                    <li>ROI-only + MedianBlur(5x5)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Selected Candidate</th>
+                      <th>선정 이유</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pcb4</td>
+                      <td>CLAHE + Median3</td>
+                      <td>F1 / FP / FN 균형이 가장 안정적</td>
+                    </tr>
+                    <tr>
+                      <td>cashew</td>
+                      <td>ROI-only + Median5</td>
+                      <td>high-recall 운영에서 더 유리한 후보</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="note-box">
+                <p>
+                  이 단계는 단순히 최고 점수 모델을 고르는 과정이 아니라, <strong>실제 운영 정책에 맞는 후보를 선택하는 단계</strong>로 보이게 만들었습니다.
+                  그래서 포트폴리오에서도 "왜 이 버전을 최종 버전으로 남겼는가"가 보이도록 표와 설명을 함께 넣었습니다.
+                </p>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 04</span>
+              <h4>운영 임계값 재설정</h4>
+              <p class="detail-copy">
+                비교 단계에서는 F1-optimal threshold를 사용했지만, 실제 검사 운영에서는 defect leakage를 더 중요하게 보기 때문에
+                final operation 단계에서는 recall-priority threshold로 다시 조정했습니다.
+              </p>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Version</th>
+                      <th>Threshold Type</th>
+                      <th>Threshold</th>
+                      <th>Precision</th>
+                      <th>Recall</th>
+                      <th>FP</th>
+                      <th>FN</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pcb4</td>
+                      <td>CLAHE + Median3</td>
+                      <td>F1-optimal</td>
+                      <td>0.0790273696</td>
+                      <td>0.7500</td>
+                      <td>0.7500</td>
+                      <td>25</td>
+                      <td>25</td>
+                    </tr>
+                    <tr>
+                      <td>pcb4</td>
+                      <td>CLAHE + Median3</td>
+                      <td>Recall-priority</td>
+                      <td>0.0750242769</td>
+                      <td>0.5882</td>
+                      <td>0.9000</td>
+                      <td>63</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>cashew</td>
+                      <td>ROI-only + Median5</td>
+                      <td>F1-optimal</td>
+                      <td>0.0516819507</td>
+                      <td>0.7258</td>
+                      <td>0.9000</td>
+                      <td>34</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>cashew</td>
+                      <td>ROI-only + Median5</td>
+                      <td>Recall-priority</td>
+                      <td>0.0498208888</td>
+                      <td>0.6573</td>
+                      <td>0.9400</td>
+                      <td>49</td>
+                      <td>6</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout-box">
+                <p>
+                  여기서 보여주고 싶은 핵심은 <strong>비교용 기준과 운영용 기준을 분리했다</strong>는 점입니다.
+                  공정 운영에서는 false positive가 늘더라도 false negative를 더 줄이는 판단이 필요할 수 있기 때문에,
+                  threshold를 두 단계로 다뤘다는 점이 이 프로젝트의 실무적인 포인트입니다.
+                </p>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 05</span>
+              <h4>운영 FP/FN 사례 시각화</h4>
+              <p class="detail-copy">
+                최종 operating threshold가 실제로 어떤 식으로 동작하는지 보여주기 위해
+                representative false positive / false negative 사례를 따로 정리했습니다.
+                숫자만 나열하는 대신, input·overlay·heatmap을 함께 보여줘서 판정 흐름을 설명할 수 있게 구성했습니다.
+              </p>
+
+              <div class="media-grid media-grid-4">
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fp_input.jpg" alt="pcb4 operating fp input" loading="lazy" />
+                  <figcaption><strong>pcb4 FP Input</strong>최종 운영 기준 false positive 입력</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fp_overlay.png" alt="pcb4 operating fp overlay" loading="lazy" />
+                  <figcaption><strong>pcb4 FP Overlay</strong>과반응 영역 확인</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fn_input.jpg" alt="pcb4 operating fn input" loading="lazy" />
+                  <figcaption><strong>pcb4 FN Input</strong>놓친 defect 샘플</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fn_heatmap.png" alt="pcb4 operating fn heatmap" loading="lazy" />
+                  <figcaption><strong>pcb4 FN Heatmap</strong>반응 부족 영역 확인</figcaption>
+                </figure>
+              </div>
+
+              <div class="media-grid media-grid-4">
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/cashew_roi_only_recall_095_representative_fp_input.jpg" alt="cashew operating fp input" loading="lazy" />
+                  <figcaption><strong>cashew FP Input</strong>운영 기준 false positive 입력</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/cashew_roi_only_recall_095_representative_fp_overlay.png" alt="cashew operating fp overlay" loading="lazy" />
+                  <figcaption><strong>cashew FP Overlay</strong>texture 과반응 확인</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/cashew_roi_only_recall_095_representative_fn_input.jpg" alt="cashew operating fn input" loading="lazy" />
+                  <figcaption><strong>cashew FN Input</strong>최종 기준 false negative 입력</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/cashew_roi_only_recall_095_representative_fn_heatmap.png" alt="cashew operating fn heatmap" loading="lazy" />
+                  <figcaption><strong>cashew FN Heatmap</strong>defect localization 한계 확인</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Step 06</span>
+              <h4>Drift Monitoring · FastAPI · MFC Demo 연결</h4>
+              <p class="detail-copy">
+                최종 버전과 threshold를 정한 뒤에는 새 배치가 들어왔을 때의 drift monitoring 기준,
+                raw image를 받아 결과를 반환하는 FastAPI endpoint, 그리고 MFC 클라이언트 연동까지 정리했습니다.
+                그래서 이 프로젝트는 모델 비교에서 끝나는 프로젝트가 아니라, 실제 사용 흐름을 보여주는 포트폴리오로 확장됩니다.
+              </p>
+
+              <div class="stack-grid">
+                <div class="stack-card">
+                  <h4>Drift Monitoring</h4>
+                  <p>score distribution, gray/gradient statistics, predicted anomaly ratio를 기준으로 weak / moderate / severe drift를 나누고 retrain trigger skeleton까지 연결했습니다.</p>
+                </div>
+                <div class="stack-card">
+                  <h4>FastAPI Serving</h4>
+                  <p>raw image 업로드 → ROI → category별 전처리 → anomaly score / overlay / heatmap → threshold decision → JSON 응답 흐름으로 구성했습니다.</p>
+                </div>
+                <div class="stack-card">
+                  <h4>MFC Demo Client</h4>
+                  <p>Windows 기반 검사 화면에서 이미지를 선택하고 cls / gt_label을 보내면 pred_label, is_correct, overlay, heatmap 경로를 확인할 수 있도록 연결했습니다.</p>
+                </div>
+              </div>
+
+              <div class="code-box">
+<pre>{
+  "cls": "cashew",
+  "gt_label": "NG",
+  "pred_label": "NG",
+  "is_correct": true,
+  "pred_score": 0.0604,
+  "decision_thr": 0.0498208888,
+  "overlay_path": "artifacts/runs/api/overlay/000_cashew.png",
+  "heatmap_path": "artifacts/runs/api/heatmap/000_cashew.png",
+  "roi_path": "artifacts/runs/api/roi/000_cashew_roi.png",
+  "preprocessed_path": "artifacts/runs/api/preprocessed/000_cashew_preproc.png"
+}</pre>
+              </div>
+
+              <div class="media-grid media-grid-2">
+                <figure class="media-card">
+                  <img src="docs/images/mfc_demo/mfc_demo.png" alt="mfc demo screenshot" loading="lazy" />
+                  <figcaption><strong>MFC Demo</strong>API 응답 결과를 Windows UI에서 확인하는 화면</figcaption>
+                </figure>
+                <figure class="media-card">
+                  <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fp_overlay.png" alt="overlay example" loading="lazy" />
+                  <figcaption><strong>Output Example</strong>heatmap / overlay 기반 결과 확인 예시</figcaption>
+                </figure>
+              </div>
+
+              <div class="note-box">
+                <p>
+                  포트폴리오 관점에서는 이 마지막 단계가 중요합니다. 단순 연구형 결과가 아니라
+                  <strong>raw image → preprocessing → inference → JSON → MFC display</strong> 흐름을 완성해서
+                  영상처리 소프트웨어와 응용 SW 연동 경험으로 연결되게 만들었습니다.
+                </p>
+              </div>
+            </section>
+
+            <section class="detail-section">
+              <span class="section-kicker">Current Status</span>
+              <h4>현재까지 진행한 범위</h4>
+              <div class="info-grid">
+                <div class="info-card">
+                  <h4>완료한 항목</h4>
+                  <ul class="bullet-list">
+                    <li>ROI-only 기준선 정리</li>
+                    <li>CLAHE 비교 및 representative case 분석</li>
+                    <li>extension filter experiments</li>
+                    <li>final operating version selection</li>
+                    <li>recall-priority threshold sweep</li>
+                    <li>operating FP/FN gallery 정리</li>
+                  </ul>
+                </div>
+                <div class="info-card">
+                  <h4>연결 완료 항목</h4>
+                  <ul class="bullet-list">
+                    <li>drift monitoring skeleton</li>
+                    <li>retrain trigger skeleton</li>
+                    <li>FastAPI inference endpoint</li>
+                    <li>gt_label / pred_label / is_correct 중심 응답 구조</li>
+                    <li>raw full-image validation</li>
+                    <li>MFC integration test</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="project-detail" id="work-history">
+            <div class="detail-hero">
+              <div>
+                <p class="eyebrow">Work Experience</p>
+                <h3>머신비전 검사 프로그램 운영 화면 개발과 판정 결과 분석 경험</h3>
+                <p>
+                  이전 회사에서는 MFC/C++ 기반 머신비전 검사 소프트웨어의 UI 개발과 유지보수,
+                  검사 결과 확인 기능 구현, 판정 데이터 비교, 오검출·미검출 분석, 결과 정리와 문서화를 담당했습니다.
+                  이 경험이 현재 포트폴리오의 운영 관점과 연결됩니다.
+                </p>
+                <div class="work-meta">
+                  <span>부서 · 개발팀</span>
+                  <span>직무 · MFC / C++ 기반 머신비전 검사 SW 엔지니어</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-grid">
+              <div class="work-card">
+                <h4>주요 업무</h4>
+                <ul class="bullet-list">
+                  <li>MFC/C++ 기반 머신비전 검사 프로그램 UI 개발 및 유지보수</li>
+                  <li>검사 결과 확인 화면, 이미지 뷰어, 파일 조회 기능 등 운영 기능 구현</li>
+                  <li>검사 알고리즘 출력 결과 및 판정 데이터 확인·분석</li>
+                  <li>분류 조건 및 판정 기준 변경 전후 결과 비교</li>
+                  <li>오검출·미검출 사례 정리 및 결과 패턴 분석</li>
+                  <li>검사 결과 데이터 정리, 문서화 및 내부 공유 자료 작성 지원</li>
+                </ul>
+              </div>
+              <div class="work-card">
+                <h4>주요 기여</h4>
+                <ul class="bullet-list">
+                  <li>검사 결과 확인에 필요한 UI 기능을 개선해 운영자의 확인 편의성과 업무 효율 향상에 기여</li>
+                  <li>조건 변경 전후 결과를 비교·정리해 판정 기준 검토 및 결과 해석 지원</li>
+                  <li>오검출·미검출 사례를 유형별로 정리해 개선 논의와 내부 공유 자료로 활용</li>
+                  <li>결과 데이터 정리 방식을 체계화해 내부 대응 및 검토 효율 향상에 기여</li>
+                  <li>Excel VBA로 반복적인 결과 비교와 정리 업무를 자동화</li>
+                </ul>
+              </div>
+              <div class="work-card">
+                <h4>이 경험으로 배운 점</h4>
+                <p>
+                  프로그램이 동작하는 것만으로는 충분하지 않고, 운영자가 어떤 정보를 먼저 봐야 하는지,
+                  이미지 특성과 품질 수준에 따라 어떤 기준을 세워야 하는지,
+                  그리고 결과를 다시 검토할 수 있게 어떻게 정리해야 하는지가 중요하다는 점을 배웠습니다.
+                </p>
+              </div>
+              <div class="work-card">
+                <h4>사용 기술</h4>
+                <p>MFC, C++, Visual Studio, OpenCV, HALCON, Excel VBA</p>
+              </div>
+            </div>
+
+            <section class="detail-section">
+              <span class="section-kicker">Why It Matters</span>
+              <h4>현재 포트폴리오와 연결되는 이유</h4>
+              <p class="detail-copy">
+                현재 메인 프로젝트에서 결과 화면, heatmap/overlay, threshold, JSON 응답 구조까지 같이 보는 이유는
+                이전 실무에서 운영자가 실제로 확인하는 흐름과 결과 정리 방식이 중요하다는 점을 경험했기 때문입니다.
+                그래서 이 섹션은 단순 경력 나열이 아니라, 지금의 Vision AI 포트폴리오가 어떤 실무 배경 위에서 나왔는지를 설명하는 역할을 합니다.
+              </p>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="experience">
+        <div class="section-header">
+          <p class="eyebrow">Experience Summary</p>
+          <h2>경험 요약</h2>
+        </div>
+        <div class="experience-list">
+          <article>
+            <h3>MFC/C++ 기반 머신비전 검사 UI 개발 및 유지보수</h3>
+            <p>검사 결과 확인 화면, 이미지 뷰어, 파일 조회 기능 등 운영자가 실제로 사용하는 기능을 구현하고 개선했습니다.</p>
+          </article>
+          <article>
+            <h3>판정 결과 비교, 오검출·미검출 분석, 기준 검토 지원</h3>
+            <p>조건 변경 전후 결과를 비교하고, 양품·불량 이미지를 기반으로 FP/FN 사례를 정리해 판정 기준 검토와 내부 공유를 지원했습니다.</p>
+          </article>
+          <article>
+            <h3>결과 데이터 정리 자동화와 문서화</h3>
+            <p>Excel VBA를 활용해 반복적인 결과 비교·정리 업무를 자동화했고, 결과 해석과 대응을 위한 문서화 작업도 함께 수행했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="contact">
+        <div class="section-header">
+          <p class="eyebrow">Contact</p>
+          <h2>연락</h2>
+        </div>
+        <div class="contact-box">
+          <p>비전 검사 SW, 영상처리, Vision AI, 운영형 영상 소프트웨어 포지션에 관심이 있습니다.</p>
+          <div class="contact-links">
+            <a href="https://github.com/ansiaa" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="mailto:ae312603@gmail.com">ae312603@gmail.com</a>
+            <a href="resume.pdf" target="_blank" rel="noreferrer">이력서 보기</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.project-card');
+    const details = document.querySelectorAll('.project-detail');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const target = card.dataset.project;
+
+        cards.forEach(item => item.classList.remove('active'));
+        details.forEach(item => item.classList.remove('active'));
+
+        card.classList.add('active');
+        const detail = document.getElementById(target);
+        if (detail) detail.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
