@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서영 안 | Vision Inspection Portfolio</title>
+  <meta name="description" content="머신비전 UI/MFC 경험을 기반으로 CV/ML 엔지니어로 확장하는 비전 검사 포트폴리오" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">Seoyoung Ahn</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#results">Results</a>
+        <a href="#demo">Demo</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">CV/ML Engineer · Vision Inspection</p>
+          <h1>머신비전 실무 경험을<br />운영형 CV/ML 포트폴리오로 연결했습니다.</h1>
+          <p class="hero-copy">
+            머신비전 회사에서 MFC 기반 UI와 검사 결과 분석 업무를 수행했고,
+            지금은 그 경험을 바탕으로 <strong>ROI 전처리 → 이상탐지 → 운영 임계값 튜닝 → FastAPI 서빙 → MFC 데모 연동</strong>까지
+            이어지는 생산형 비전 검사 프로젝트를 구축했습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#project">대표 프로젝트 보기</a>
+            <a class="btn btn-secondary" href="#contact">연락처 / 이력서</a>
+          </div>
+          <ul class="hero-tags">
+            <li>Python</li>
+            <li>OpenCV</li>
+            <li>Anomaly Detection</li>
+            <li>FastAPI</li>
+            <li>MFC / C++</li>
+            <li>Failure Analysis</li>
+          </ul>
+        </div>
+
+        <aside class="hero-card">
+          <p class="card-label">핵심 포인트</p>
+          <ul class="hero-points">
+            <li>ROI 기반 입력 안정화</li>
+            <li>카테고리별 전처리 선택 근거 제시</li>
+            <li>운영 기준 Recall 우선 임계값 재설정</li>
+            <li>Drift Monitoring / Retrain Trigger Skeleton</li>
+            <li>FastAPI + MFC 데모 클라이언트 연결</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>이 포트폴리오에서 보여주려는 것</h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>이전 경험</h3>
+            <p>
+              머신비전 회사에서 알고리즘 자체보다는 <strong>MFC 기반 운영 UI</strong>,
+              검사 결과 확인, 오검출/미검출 분석, 판정 조건 변경 전후 비교 같은 업무를 맡았습니다.
+              그래서 단순 모델 성능보다 <strong>현장에서 어떻게 쓰이고 검증되는지</strong>에 더 익숙합니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>지금 만든 방향</h3>
+            <p>
+              이번 프로젝트는 README 내용을 그대로 늘어놓는 대신,
+              <strong>취업용 포트폴리오 관점</strong>에서 문제 정의, 실험 설계, 운영 정책, API 데모까지 한 흐름으로 재정리했습니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>지원 포지션</h3>
+            <p>
+              머신비전 소프트웨어, 비전 검사, Computer Vision, Applied ML,
+              ML Engineer 포지션에 맞춰 구성했습니다. 핵심은 <strong>실험만 한 사람이 아니라 운영을 생각하는 사람</strong>으로 보이게 하는 것입니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Project</p>
+          <h2>Production Vision Inspection</h2>
+          <p class="section-copy">
+            ROI 전처리, 이상탐지, Heatmap/Overlay 해석, 임계값 재구성, Drift Monitoring, FastAPI 서빙,
+            MFC 데모 클라이언트까지 연결한 생산형 비전 검사 프로젝트.
+          </p>
+        </div>
+
+        <div class="project-overview-grid">
+          <article class="panel">
+            <h3>문제</h3>
+            <p>
+              조명, 카메라 상태, 배경, 생산 라인 변화 때문에 입력 품질이 흔들리면
+              단순 OK/NG 분류만으로는 운영이 불안정해지고 FP/FN 원인 분석도 어려워집니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>목표</h3>
+            <p>
+              원본 이미지에서 ROI를 안정적으로 추출하고, 전처리·이상점수·Heatmap·Threshold 정책을 정리한 뒤,
+              실제 운영 흐름에 가깝게 API와 MFC 데모까지 연결하는 것입니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>데이터</h3>
+            <p>
+              VisA 데이터셋의 <strong>pcb4</strong>, <strong>cashew</strong> 카테고리를 사용했습니다.
+              서로 다른 형태와 표면 특성을 비교하면서 전처리 선택의 차이를 확인했습니다.
+            </p>
+          </article>
+        </div>
+
+        <div class="stats-grid four">
+          <div class="stat-card">
+            <span class="stat-kicker">Dataset</span>
+            <strong>pcb4</strong>
+            <span>Normal 1005 / Anomaly 100</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-kicker">Dataset</span>
+            <strong>cashew</strong>
+            <span>Normal 500 / Anomaly 100</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-kicker">Serving</span>
+            <strong>FastAPI</strong>
+            <span>raw image → JSON response</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-kicker">Desktop Demo</span>
+            <strong>MFC / C++</strong>
+            <span>inspection-style client</span>
+          </div>
+        </div>
+
+        <div class="pipeline-card panel mono">
+          <h3>Pipeline</h3>
+          <pre>Raw Image
+→ ROI / Crop
+→ Resize / Normalize
+→ Patch Memory-Bank Anomaly Detection
+→ Score / Heatmap / Overlay
+→ Threshold-based Decision
+→ FP/FN Analysis
+→ Filter Extension Experiments
+→ Final Operating Threshold
+→ Drift Monitoring / Retrain Trigger
+→ FastAPI Response
+→ MFC Demo Client</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2>핵심 실험 결과</h2>
+        </div>
+
+        <div class="results-grid">
+          <article class="panel">
+            <h3>CLAHE 비교 결론</h3>
+            <ul class="check-list">
+              <li><strong>pcb4:</strong> ROI+CLAHE가 더 적합</li>
+              <li><strong>cashew:</strong> ROI-only가 더 안정적</li>
+            </ul>
+            <p>
+              같은 전처리를 모든 카테고리에 일괄 적용하지 않고,
+              각 객체의 표면 특성과 FP/FN 패턴을 기준으로 선택했습니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>최종 운영 조합</h3>
+            <ul class="check-list">
+              <li><strong>pcb4:</strong> CLAHE + Median3</li>
+              <li><strong>cashew:</strong> ROI-only + Median5</li>
+            </ul>
+            <p>
+              가장 높은 단일 지표만 보기보다 운영상 defect leakage를 줄이는 방향으로 조합을 선택했습니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>운영 임계값</h3>
+            <ul class="check-list">
+              <li><strong>pcb4:</strong> recall-priority 0.90</li>
+              <li><strong>cashew:</strong> recall-priority 0.95 target</li>
+            </ul>
+            <p>
+              비교용 F1-optimal threshold와 실제 운영용 recall-priority threshold를 분리해 설계했습니다.
+            </p>
+          </article>
+        </div>
+
+        <div class="table-wrap panel">
+          <h3>Final Operating Threshold Result</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Version</th>
+                <th>Threshold</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>FP</th>
+                <th>FN</th>
+                <th>AUROC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pcb4</td>
+                <td>CLAHE + Median3</td>
+                <td>0.0750242769</td>
+                <td>0.5882</td>
+                <td>0.9000</td>
+                <td>63</td>
+                <td>10</td>
+                <td>0.9750</td>
+              </tr>
+              <tr>
+                <td>cashew</td>
+                <td>ROI-only + Median5</td>
+                <td>0.0498208888</td>
+                <td>0.6573</td>
+                <td>0.9400</td>
+                <td>49</td>
+                <td>6</td>
+                <td>0.96976</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Visuals</p>
+          <h2>대표 이미지</h2>
+          <p class="section-copy">
+            아래 경로는 README에서 사용하던 상대 경로를 그대로 사용합니다. 현재 프로젝트 리포지토리에 이미지가 있으면 GitHub Pages에서도 그대로 표시됩니다.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="media-card">
+            <img src="docs/images/roi/pcb4/000_debug.jpg" alt="pcb4 ROI debug" />
+            <figcaption>pcb4 ROI Debug</figcaption>
+          </figure>
+          <figure class="media-card">
+            <img src="docs/images/roi/cashew/000_debug.jpg" alt="cashew ROI debug" />
+            <figcaption>cashew ROI Debug</figcaption>
+          </figure>
+          <figure class="media-card">
+            <img src="docs/images/operating_threshold/representative/pcb4_clahe_recall_090_representative_fp_overlay.png" alt="pcb4 overlay" />
+            <figcaption>pcb4 Representative Overlay</figcaption>
+          </figure>
+          <figure class="media-card">
+            <img src="docs/images/mfc_demo/mfc_demo.png" alt="MFC demo" />
+            <figcaption>MFC Demo Client</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Demo & Architecture</p>
+          <h2>운영 구조로 보여주는 포인트</h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>FastAPI Endpoint</h3>
+            <p>
+              업로드된 raw 이미지를 저장하고, 카테고리별 ROI와 전처리를 거쳐 score/heatmap/overlay를 생성한 뒤,
+              threshold 기반 판정을 JSON으로 반환합니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>MFC Integration</h3>
+            <p>
+              Windows 데스크톱 환경에서 이미지를 선택하고 `cls`, `gt_label`, `source_path`를 전달해
+              서버 응답과 결과 이미지를 바로 확인하는 흐름까지 검증했습니다.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>Drift Monitoring</h3>
+            <p>
+              score distribution, gray/gradient statistics, predicted anomaly ratio를 기준으로
+              weak / moderate / severe drift를 판단하는 skeleton을 추가했습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why This Matters</p>
+          <h2>채용 담당자가 봐야 하는 포인트</h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>1. 실험을 운영으로 연결</h3>
+            <p>모델 점수만 정리한 것이 아니라, 임계값 정책과 FP/FN 해석을 운영 관점으로 재구성했습니다.</p>
+          </article>
+          <article class="panel">
+            <h3>2. MFC 경험과 자연스럽게 연결</h3>
+            <p>기존 경력의 강점인 검사 UI/결과 해석 경험이 FastAPI + MFC 데모 흐름과 직접 이어집니다.</p>
+          </article>
+          <article class="panel">
+            <h3>3. AI/ML 확장성</h3>
+            <p>ROI, 전처리, 이상탐지, 서빙, 모니터링을 묶어서 이후 CV/ML 포지션으로 확장 가능한 형태로 보여줍니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>마무리</h2>
+          <p class="section-copy">
+            아래 링크는 업로드 전에 본인 정보로 교체하세요.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="https://github.com/ansiaa" target="_blank" rel="noreferrer">
+            <span class="contact-label">GitHub</span>
+            <strong>github.com/ansiaa</strong>
+          </a>
+          <a class="contact-card" href="mailto:your-email@example.com">
+            <span class="contact-label">Email</span>
+            <strong>your-email@example.com</strong>
+          </a>
+          <a class="contact-card" href="./resume.pdf" target="_blank" rel="noreferrer">
+            <span class="contact-label">Resume PDF</span>
+            <strong>resume.pdf</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© 2026 Seoyoung Ahn</p>
+      <p>Vision Inspection · Computer Vision · ML Engineering</p>
+    </div>
+  </footer>
+</body>
+</html>
