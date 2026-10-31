@@ -29,6 +29,9 @@
     .project-grid.project-grid-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .project-grid.project-grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
     .detail-panel {
       margin-top: 28px;
     }
@@ -254,7 +257,8 @@
       .info-grid,
       .work-grid,
       .stack-grid,
-      .project-grid.project-grid-2 {
+      .project-grid.project-grid-2,
+      .project-grid.project-grid-3 {
         grid-template-columns: 1fr;
       }
       .media-grid.media-grid-2 {
@@ -359,12 +363,19 @@
           <p class="section-guide">카드를 선택하면 상세 내용이 열립니다</p>
         </div>
 
-        <div class="project-grid project-grid-2">
+        <div class="project-grid project-grid-3">
           <button class="project-card active" data-project="vision-inspection">
             <span class="project-type">MAIN PROJECT</span>
             <strong>Production Vision Inspection</strong>
             <p>ROI 전처리부터 운영 임계값, API, MFC 데모까지 연결한 운영형 비전 검사 포트폴리오</p>
             <span class="project-stack">Python · OpenCV · FastAPI · MFC/C++</span>
+          </button>
+
+          <button class="project-card" data-project="oct-viewer">
+            <span class="project-type">CURRENT WORK</span>
+            <strong>OCT 검사 Viewer 자체 개발</strong>
+            <p>OCT 검사 영상을 확인·판단하는 운영 프로그램의 UI 설계·구현과 예외 처리 전담</p>
+            <span class="project-stack">C# · WPF · Visual Studio · Git</span>
           </button>
 
           <button class="project-card" data-project="work-history">
@@ -899,6 +910,56 @@
                 </div>
               </div>
             </section>
+          </article>
+
+          <article class="project-detail" id="oct-viewer">
+            <div class="detail-hero">
+              <div>
+                <p class="eyebrow">Current Work · 카이스</p>
+                <h3>C# WPF 기반 OCT 검사 Viewer 사내 자체 개발</h3>
+                <p>
+                  OCT 검사 영상을 확인하고 판단하기 위한 운영 프로그램을 사내에서 자체 개발하고 있습니다.
+                  화면 UI 디자인부터 C# WPF 기반 구현, 프로그램 전반의 예외 처리를 전담하고 있으며,
+                  향후 생산 라인 인라인 검사용 SW로 확장하기 위해 기능을 검토하고 있습니다.
+                </p>
+                <div class="work-meta">
+                  <span>기간 · 2026.06 ~ 진행 중</span>
+                  <span>부서 · 개발1팀</span>
+                  <span>역할 · SW 개발 (UI 설계·구현, 예외 처리 전담)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-grid">
+              <div class="work-card">
+                <h4>주요 업무</h4>
+                <ul class="bullet-list">
+                  <li>화면 UI 디자인 및 C# WPF 기반 UI/UX 설계·구현</li>
+                  <li>검사 영상 표시·조회 등 Viewer 핵심 기능 개발</li>
+                  <li>프로그램 전반의 예외 처리 설계·구현 전담</li>
+                  <li>Git 기반 소스 형상관리</li>
+                  <li>외주 개발 3D Viewer 코드 리뷰 및 기술 조사·문서 작성</li>
+                </ul>
+              </div>
+              <div class="work-card">
+                <h4>진행 및 확장 방향</h4>
+                <ul class="bullet-list">
+                  <li>생산 라인 인라인 검사용 SW로 확장하기 위한 기능 검토</li>
+                  <li>AI 담당자와 협업하여 기존 비전 검사에 AI 검사 접목 준비</li>
+                </ul>
+              </div>
+              <div class="work-card">
+                <h4>일하는 방식</h4>
+                <p>
+                  예외 상황을 먼저 재현하고 기록한 뒤 수정하는 방식으로 작업하고 있습니다.
+                  어떤 입력과 상황에서 문제가 생기는지 정리해 두어, 같은 문제가 반복되지 않도록 하고 있습니다.
+                </p>
+              </div>
+              <div class="work-card">
+                <h4>사용 기술</h4>
+                <p>C#, WPF, Visual Studio, Git</p>
+              </div>
+            </div>
           </article>
 
           <article class="project-detail" id="work-history">
